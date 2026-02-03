@@ -1,0 +1,166 @@
+body{
+  margin:0;
+  font-family:'Roboto',sans-serif;
+  background:#fff;
+  color:#333;
+  padding:20px;
+  text-align:center;
+}
+
+/* HEADER */
+header{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  margin-bottom:30px;
+}
+.logo-img{
+  width:120px;
+}
+h1{
+  color:#b22222;
+}
+
+/* TABS */
+.tabs{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+  position:sticky;
+  top:0;
+  background:#fff;
+  padding:15px 0;
+  z-index:100;
+}
+.tab-btn{
+  padding:10px 20px;
+  border:2px solid #b22222;
+  background:none;
+  color:#b22222;
+  font-weight:bold;
+  border-radius:25px;
+  cursor:pointer;
+}
+.tab-btn.active,
+.tab-btn:hover{
+  background:#b22222;
+  color:#fff;
+}
+
+/* SECCIONES */
+.menu-section{
+  display:none;
+  max-width:720px;
+  margin:0 auto;
+  text-align:left;
+}
+.menu-section.active{
+  display:block;
+}
+
+/* LISTAS */
+ul{
+  list-style:none;
+  padding:0;
+}
+li{
+  padding:16px 0;
+  border-bottom:1px solid #eee;
+  text-align:center;          /* centra el contenido */
+}
+
+.plato-linea{
+  display:flex;
+  justify-content:center;     /* centra el bloque completo */
+  align-items:baseline;
+  gap:12px;
+}
+
+.plato-linea span:first-child{
+  font-weight:500;
+  text-transform:uppercase;
+  font-size:0.95em;
+}
+
+.precio{
+  color:#b22222;
+  font-weight:700;
+  white-space:nowrap;
+}
+
+
+
+/* ALERGENOS */
+.leyenda-alergenos{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:12px;
+  margin-top:40px;
+  font-size:0.8em;
+}
+.leyenda-alergenos img{
+  width:45px;
+  margin-right:6px;
+}
+.leyenda-alergenos div{
+  display:flex;
+  align-items:center;
+}
+@media(max-width:768px){
+  .leyenda-alergenos{
+    grid-template-columns:repeat(4,1fr);
+  }
+}
+
+
+/* BOTONES FLOTANTES */
+#btn-up{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  font-size:3rem;
+  color:#b22222;
+  cursor:pointer;
+}
+#btn-home{
+  position:fixed;
+  bottom:20px;
+  left:20px;
+  font-size:2.5rem;
+  color:#b22222;
+  cursor:pointer;
+}
+
+/* FOOTER */
+.footer-links{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  font-size:0.85em;
+}
+
+.footer-links a{
+  color:white;
+  text-decoration:underline;
+}
+
+.footer-copy{
+  margin:6px 0 4px;
+  font-size:0.95em;
+}
+.footer-legal{
+  background:#b22222;
+  color:white;
+  padding:20px 10px;
+  text-align:center;
+  display:block;
+}
+
+.icon-alergeno{
+  width:22px;
+  height:22px;
+}
+.alergenos{
+  justify-content:center;
+}

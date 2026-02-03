@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carta del Restaurante</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      /* He cambiado el blanco puro por el tono grisáceo típico de fondos de imagen para que el logo se integre */
+      background-color: #ffffff; 
+      color: #333;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    /* Estilo para que el logo se vea más limpio */
+    .logo-img {
+      width: 120px;
+      height: auto;
+      mix-blend-mode: multiply; /* Esta propiedad ayuda a "eliminar" el fondo blanco/grisáceo si el logo es oscuro */
+      filter: contrast(110%);
+    }
+
+    h1 {
+      font-size: 2.2em;
+      margin: 10px 0;
+      color: #b22222;
+    }
+
+    /* Navegación por pestañas */
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 30px;
+      position: sticky;
+      top: 0;
+      background: #ffffff; /* Mismo color que el fondo para que no desentone al bajar */
+      padding: 15px 0;
+      z-index: 100;
+    }
+
+    .tab-btn {
+      padding: 10px 20px;
+      border: 2px solid #b22222;
+      background: transparent;
+      color: #b22222;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 25px;
+      transition: 0.3s;
+      text-transform: uppercase;
+      font-size: 0.9em;
+    }
+
+    .tab-btn.active, .tab-btn:hover {
+      background: #b22222;
+      color: white;
+    }
+
+    /* Secciones de contenido */
+    .menu-section {
+      display: none;
+      max-width: 450px;
+      margin: 0 auto;
+      text-align: left;
+      animation: fadeIn 0.5s;
+    }
+
+    .menu-section.active {
+      display: block;
+    }
+
+    h2 {
+      font-size: 1.8em;
+      text-align: center;
+      color: #b22222;
+      border-bottom: 2px solid #b22222;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+li {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;               /* separación controlada texto-precio */
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+li span:first-child {
+  flex: 1;                 /* el texto ocupa el espacio */
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.95em;
+}
+
+.precio {
+  font-weight: 700;
+  color: #b22222;
+  white-space: nowrap;
+  margin-left: 10px;       /* acerca aún más el precio */
+}
+
+    .precio {
+      font-weight: 700;
+      color: #b22222;
+      white-space: nowrap;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media(max-width: 600px) {
+      .tab-btn {
+        padding: 8px 15px;
+        font-size: 0.8em;
+      }
+    }
+	    /* Icono volver arriba */
+    #fancy_icon-40-6 {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      font-size: 3rem;
+      color: #b22222;
+      cursor: pointer;
+      display: none; /* oculto hasta hacer scroll */
+      z-index: 1000;
+    }
+
+    #fancy_icon-40-6:hover {
+      color: #ff4444;
+    }
+	
+.plato-linea {
+  font-weight: 500;
+}
+
+.alergenos {
+  margin-top: 6px;
+  display: flex;
+  gap: 8px;
+  color: #777;
+  font-size: 0.9em;
+}
+
+.leyenda-alergenos {
+  margin-top: 40px;
+  font-size: 0.85em;
+  color: #666;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+
+  </style>
+</head>
+<body>
+<div id="fancy_icon-40-6" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+  <i class="fas fa-arrow-circle-up"></i>
+</div>
+  <header>
+    <img src="logo.png" alt="Logo Restaurante" class="logo-img">
+    <h1>Nuestra Carta</h1>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab-btn active" onclick="showSection('tapas', event)">Tapas</button>
+    <button class="tab-btn" onclick="showSection('raciones', event)">Raciones</button>
+    <button class="tab-btn" onclick="showSection('postres', event)">Postres</button>
+    <button class="tab-btn" onclick="showSection('bebidas', event)">Bebidas</button>
+  </nav>
+
+  <section id="tapas" class="menu-section active">
+   <ul id="tapas-list"></ul>
+  </section>
+
+  <section id="raciones" class="menu-section">
+ <ul id="raciones-list"></ul>
+  </section>
+
+<section id="postres" class="menu-section">
+  <ul id="postres-list"></ul>
+</section>
+
+  <section id="bebidas" class="menu-section">
+  
+    <ul>
+      <li><span>Cerveza local de barril</span><span class="precio">2,50 €</span></li>
+      <li><span>Vino Tinto regional</span><span class="precio">12,00 €</span></li>
+    </ul>
+  </section>
+  
+<div class="leyenda-alergenos">
+  <span><i class="fas fa-bread-slice"></i> Gluten</span>
+  <span><i class="fas fa-cheese"></i> Lácteos</span>
+  <span><i class="fas fa-egg"></i> Huevo</span>
+  <span><i class="fas fa-fish"></i> Pescado</span>
+  <span><i class="fas fa-shrimp"></i> Marisco</span>
+  <span><i class="fas fa-seedling"></i> Frutos secos / semillas</span>
+</div>
+
+
+  <script>
+  function showSection(sectionId, event) {
+  document.querySelectorAll('.menu-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+
+  document.getElementById(sectionId).classList.add('active');
+  event.currentTarget.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+/* volver arriba */
+const btnUp = document.getElementById('fancy_icon-40-6');
+window.addEventListener('scroll', () => {
+  btnUp.style.display = window.scrollY > 200 ? 'block' : 'none';
+});
+
+/* iconos */
+const ICONOS = {
+  gluten: 'fa-bread-slice',
+  lacteos: 'fa-cheese',
+  huevo: 'fa-egg',
+  pescado: 'fa-fish',
+  marisco: 'fa-shrimp',
+  frutos: 'fa-seedling',
+  soja: 'fa-leaf'
+};
+
+/* DATOS */
+
+	const TAPAS = [
+  { nombre: 'JAMÓN DE RESERVA' },
+  { nombre: 'CAÑA DE LOMO EMBUCHADO' },
+  { nombre: 'CUÑA DE QUESO SEMICURADO', alergenos: ['lacteos'] },
+  { nombre: 'EMPANADA DE GUACAMOLE CON QUESO DE CABRA Y PIMIENTO', alergenos: ['gluten','lacteos'] },
+  { nombre: 'TOSTA DE SARDINA AHUMADA', alergenos: ['gluten','pescado'] },
+  { nombre: 'TOSTA DE CREMA DE ACEITUNAS CON ANCHOAS', alergenos: ['gluten','pescado'] },
+  { nombre: 'TOSTA DE CABALLA CON MAHONESA Y TOMATE', alergenos: ['gluten','pescado','huevo'] },
+  { nombre: 'TOSTA DE LOMO DE ORZA A NUESTRO ESTILO', alergenos: ['gluten'] },
+  { nombre: 'BOQUERONES EN VINAGRE', alergenos: ['pescado'] },
+  { nombre: 'PINCHO DE TORTILLA DE PATATAS CON SALMOREJO', alergenos: ['huevo','gluten'] },
+  { nombre: 'PATATAS CON ALI OLI', alergenos: ['huevo'] },
+  { nombre: 'TALEGA DE BACALAO', alergenos: ['pescado','gluten'] },
+  { nombre: 'CARACOLES (EN TEMPORADA)' },
+  { nombre: 'BOQUERONES FRITOS', alergenos: ['pescado','gluten'] },
+  { nombre: 'CHOCO FRITO', alergenos: ['pescado','gluten'] },
+  { nombre: 'CROISSANT DE BACON Y QUESO', alergenos: ['gluten','lacteos'] },
+  { nombre: 'HAMBURGUESA DE GAMBAS CON TINTA DE CALAMAR', alergenos: ['marisco','gluten'] },
+  { nombre: 'HAMBURGUESA DE BACALAO CON ALIOLI', alergenos: ['pescado','huevo'] },
+  { nombre: 'HAMBURGUESA DE CERDO', alergenos: ['gluten'] },
+  { nombre: 'PATATAS BRAVAS' },
+  { nombre: 'QUESO DE CABRA FRITO', alergenos: ['lacteos','gluten'] },
+  { nombre: 'PINCHO DE CERDO A LA MORUNA' },
+  { nombre: 'BROCHETA DE POLLO CON GAMBAS Y SALSA DE SOJA', alergenos: ['marisco','soja'] },
+  { nombre: 'LAGRIMITAS DE POLLO', alergenos: ['gluten'] },
+  { nombre: 'NUGGETS DE POLLO', alergenos: ['gluten','huevo'] },
+  { nombre: 'FAJITA DE POLLO AL CURRY', alergenos: ['gluten','lacteos'] },
+  { nombre: 'MONTADITO DE TOCINO PLANCHA', alergenos: ['gluten'] },
+  { nombre: 'MONTADITO DE SECRETO CON PIMIENTOS', alergenos: ['gluten'] },
+  { nombre: 'MONTADITO DE CALAMARES CON ALIOLI', alergenos: ['gluten','pescado','huevo'] },
+  { nombre: 'MONTADITO DE PICADILLO DE CHORIZO', alergenos: ['gluten'] },
+  { nombre: 'MONTADITO DE LOMO ADOBADO CON QUESO Y ALIOLI', alergenos: ['gluten','lacteos','huevo'] },
+  { nombre: 'MONTADITO DE CARNE PLANCHA', alergenos: ['gluten'] },
+  { nombre: 'MONTADITO DE SALCHICHAS Y QUESO', alergenos: ['gluten','lacteos'] },
+  { nombre: 'MONTADITO DE PATÉ CON SALCHICHÓN IBÉRICO', alergenos: ['gluten'] },
+  { nombre: 'SERRANITO', alergenos: ['gluten','huevo'] },
+  { nombre: 'TOSTA DE MERO A LA ANDALUZA', alergenos: ['gluten','pescado'] },
+  { nombre: 'TOSTA DE CALDERA AL CROCANTI', alergenos: ['gluten','pescado','frutos'] },
+  { nombre: 'TOSTA DE SOLOMILLO CON JAMÓN, ALIOLI Y CEBOLLA FRITA', alergenos: ['gluten','huevo'] },
+  { nombre: 'TOSTA DE POLLO CON SALSA CHEDDAR Y PIPAS', alergenos: ['gluten','lacteos','frutos'] },
+  { nombre: 'TOSTONES DE MORRO' },
+  { nombre: 'SESOS AL AJILLO' }
+];
+
+const RACIONES = [
+  { nombre: 'JAMÓN IBÉRICO DE GUIJUELO', precio: '13€' },
+  { nombre: 'SURTIDO DE EMBUTIDOS IBÉRICOS', precio: '12€' },
+  { nombre: 'QUESO AL PEDRO XIMÉNEZ, CURADO O EN ACEITE', precio: '13€', alergenos: ['lacteos'] },
+  { nombre: 'TABLA DE QUESOS', precio: '16€', alergenos: ['lacteos'] },
+  { nombre: 'GAMBA BLANCA COCIDA (16 UNIDADES)', precio: '16€', alergenos: ['marisco'] },
+  { nombre: 'ENSALADA DE CODORNIZ Y BROTES VERDES', precio: '12€' },
+  { nombre: 'ENSALADA DE QUESO DE CABRA Y FRUTOS SECOS', precio: '12€', alergenos: ['lacteos','frutos'] },
+  { nombre: 'TOMATE CON BONITO Y QUESO FETA', precio: '10€', alergenos: ['pescado','lacteos'] },
+  { nombre: 'ANCHOAS DEL CANTÁBRICO CON MOJE', precio: '16€', alergenos: ['pescado'] },
+  { nombre: 'MOJAMA TACO', precio: '4€', alergenos: ['pescado'] },
+  { nombre: 'SENDRA TACO', precio: '6€' },
+  { nombre: 'GYOZAS DE CERDO O POLLO CON SALSA DE SOJA', precio: '13€', alergenos: ['gluten','soja'] },
+  { nombre: 'CROQUETAS CASERAS DE BOLETUS', precio: '14€', alergenos: ['gluten','lacteos'] },
+  { nombre: 'CROQUETAS CASERAS DE RABO DE TORO', precio: '14€', alergenos: ['gluten','lacteos'] },
+  { nombre: 'CROQUETAS CASERAS DE PUCHERO', precio: '14€', alergenos: ['gluten','lacteos'] },
+  { nombre: 'CROQUETAS CASERAS DE MARISCO', precio: '14€', alergenos: ['gluten','lacteos','marisco'] },
+  { nombre: 'NUGGETS DE POLLO', precio: '14€', alergenos: ['gluten','huevo'] },
+  { nombre: 'LAGRIMITAS DE POLLO', precio: '14€', alergenos: ['gluten'] },
+  { nombre: 'FLAMENQUÍN CASERO DE LA CASA', precio: '14€', alergenos: ['gluten','lacteos','huevo'] },
+  { nombre: 'BOQUERONES FRITOS', precio: '14€', alergenos: ['pescado','gluten'] },
+  { nombre: 'REJOS FRITOS', precio: '16€', alergenos: ['pescado','gluten'] },
+  { nombre: 'PUNTILLAS FRITAS', precio: '15€', alergenos: ['pescado','gluten'] },
+  { nombre: 'CALAMARES A LA ROMANA', precio: '14€', alergenos: ['pescado','gluten','huevo'] },
+  { nombre: 'TROCITOS DE PEZ EN ADOBO', precio: '15€', alergenos: ['pescado','gluten'] },
+  { nombre: 'ROSADA CON ALI OLI', precio: '16€', alergenos: ['pescado','huevo'] },
+  { nombre: 'FRITURA DE PESCADO', precio: '17€', alergenos: ['pescado','gluten'] },
+  { nombre: 'PULPO A LA BRASA', precio: '17€', alergenos: ['pescado'] },
+  { nombre: 'GAMBAS AL AJILLO', precio: '13€', alergenos: ['marisco'] },
+  { nombre: 'GAMBA BLANCA PLANCHA (16 UNIDADES)', precio: '16€', alergenos: ['marisco'] },
+  { nombre: 'ALMEJAS FRITAS AL AJILLO', precio: '14€', alergenos: ['marisco','gluten'] },
+  { nombre: 'BACALAO FRITO', precio: '15€', alergenos: ['pescado','gluten'] },
+  { nombre: 'TATAKI DE ATÚN CON SÉSAMO Y SOJA', precio: '14€', alergenos: ['pescado','soja','frutos'] },
+  { nombre: 'ZAMBURIÑAS PLANCHA', precio: '15€', alergenos: ['marisco'] },
+  { nombre: 'TORREZNOS DE ÁVILA', precio: '13€' },
+  { nombre: 'LAGARTO IBÉRICO A LA BRASA', precio: '15€' },
+  { nombre: 'PRESA IBÉRICA A LA BRASA', precio: '16€' },
+  { nombre: 'SOLOMILLO AL AJILLO', precio: '15€' },
+  { nombre: 'ENTRECOTTE DE AÑOJO MADURADO', precio: '16€' },
+  { nombre: 'CARRILLADA DE IBÉRICO AL VINO TINTO', precio: '15€' },
+  { nombre: 'RABO DE TORO', precio: '18€' },
+  { nombre: 'CHULETILLAS DE LECHAL (UNIDAD)', precio: '3,5€' },
+  { nombre: 'PATATAS GRATINADAS CON CHEDDAR Y BACON', precio: '10€', alergenos: ['lacteos'] },
+  { nombre: 'PATATAS GRATINADAS CON CHEDDAR, POLLO Y BBQ', precio: '10€', alergenos: ['lacteos'] },
+  { nombre: 'PAPAS CON GULAS Y HUEVOS ROTOS', precio: '13€', alergenos: ['pescado','huevo'] },
+  { nombre: 'PAPAS CON JAMÓN PLANCHA Y HUEVOS ROTOS', precio: '13€', alergenos: ['huevo'] },
+  { nombre: 'PAPAS CON SECRETO PLANCHA Y HUEVOS ROTOS', precio: '13€', alergenos: ['huevo'] }
+];
+
+const POSTRES = [
+  { nombre: 'TRUFO HELADO DE CHOCOLATE', precio: '5€', alergenos: ['lacteos'] },
+  { nombre: 'FLAN HELADO CON PIÑONES', precio: '5€', alergenos: ['lacteos','huevo','frutos'] },
+  { nombre: 'TORRIJA CASERA CON HELADO', precio: '5€', alergenos: ['gluten','lacteos','huevo'] },
+  { nombre: 'TARTA DE QUESO (CASERA)', precio: '5€', alergenos: ['lacteos','huevo'] },
+  { nombre: 'TARTA DE QUESO, CHOCOLATE BLANCO Y PISTACHOS (CASERA)', precio: '5€', alergenos: ['lacteos','huevo','frutos'] },
+  { nombre: 'TARTA DE QUESO Y FILIPINOS (CASERA)', precio: '5€', alergenos: ['lacteos','huevo','gluten'] },
+  { nombre: 'TARTA DE QUESO Y KINDER (CASERA)', precio: '5€', alergenos: ['lacteos','huevo','gluten'] },
+  { nombre: 'COPA HELADO BABY', precio: '6€', alergenos: ['lacteos'] },
+  { nombre: 'COULANT O BROWNIE DE CHOCOLATE CON HELADO Y NATA', precio: '3,5€', alergenos: ['gluten','lacteos','huevo'] },
+  { nombre: 'NATILLAS CASERAS', precio: '3,5€', alergenos: ['lacteos','huevo'] },
+  { nombre: 'ARROZ CON LECHE', precio: '3,5€', alergenos: ['lacteos'] },
+  { nombre: 'FLAN CON NATA', precio: '3,5€', alergenos: ['lacteos','huevo'] },
+  { nombre: 'COPA DE HELADO DE VAINILLA Y CHOCOLATE', precio: '3,5€', alergenos: ['lacteos'] }
+];
+
+/* FUNCIÓN REUTILIZABLE (PRO) CORREGIDA */
+function pintarLista(lista, ulId, conPrecio = false) {
+  const ul = document.getElementById(ulId);
+  
+  // Limpiamos el contenido previo por si acaso
+  ul.innerHTML = '';
+
+  lista.forEach(plato => {
+    const li = document.createElement('li');
+
+    // Usamos backticks ( ` ) para envolver el HTML
+    li.innerHTML = `
+      <div class="plato-linea">
+        <span>${plato.nombre}</span>
+        ${conPrecio ? `<span class="precio">${plato.precio}</span>` : ''}
+      </div>
+      ${plato.alergenos ? `
+        <div class="alergenos">
+          ${plato.alergenos.map(a => `<i class="fas ${ICONOS[a]}" title="${a}"></i>`).join('')}
+        </div>` : ''}
+    `; // Aquí cerramos el string correctamente
+
+    ul.appendChild(li);
+  });
+}
+
+/* pintar */
+pintarLista(TAPAS, 'tapas-list');
+pintarLista(RACIONES, 'raciones-list', true);
+pintarLista(POSTRES, 'postres-list', true);
+
+ 
+ </script>
+
+</body>
+</html>

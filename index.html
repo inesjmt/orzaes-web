@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurante - Inicio</title>
+
+  <!-- Cargar Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="estilos.css">
+
+</head>
+<div id="cookie-banner">
+  <p>
+    Utilizamos cookies técnicas para el correcto funcionamiento de la web.
+    No utilizamos cookies de análisis ni publicidad.
+    <a href="politica-cookies.html">Más información</a>
+  </p>
+  <button onclick="aceptarCookies()">Aceptar</button>
+</div>
+
+<body>
+  <header id="top">
+    <img src="logo.png" alt="Logo Restaurante">
+  </header>
+
+<div class="buttons">
+  <a href="#reserva" class="btn btn-red">Reserva</a>
+ 
+<!-- <a href="#novedades" class="flecha-abajo">
+    <i class="fas fa-angle-down"></i>
+  </a> -->
+  <a href="carta.html" class="btn btn-black">Nuestra carta</a>
+</div>
+
+
+<!-- Sección Novedades -->
+<section id="novedades" class="ct-section">
+  <div class="ct-section-inner-wrap">
+    <h2 id="headline-76-7" class="ct-headline">Servicio de catering</h2>
+
+		<div class="ct-new-columns">
+		  <div class="ct-div-block">
+			<img src="catering1.png" alt="" class="ct-image">
+			<div class="ct-text-block">
+			  Convierte cada ocasión en un momento inolvidable con nuestro servicio de catering.
+			</div>
+		  </div>
+
+		  <div class="ct-div-block">
+			<img src="catering2.png" alt="" class="ct-image">
+			<div class="ct-text-block">
+			  Celebraciones privadas, encuentros únicos ¿Ya tienes fecha para el tuyo?
+			</div>
+		  </div>
+
+	
+		 <div class="ct-div-block">
+			<img src="catering3.png" alt="" class="ct-image">
+			<div class="ct-text-block" style="line-height:1;">
+			
+			  Teléfono de reservas 656962955.<br>
+			  Paseo Virgen de Linarejos, 32.
+			</div>
+		 
+		</div>
+    </div>
+
+    <!-- Flecha abajo que lleva a reservas -->
+    <div id="fancy_icon-318-7" class="ct-fancy-icon boilf">
+      <svg id="svg-fancy_icon-318-7" onclick="document.getElementById('reserva').scrollIntoView({behavior:'smooth'})">
+        <use xlink:href="#Lineariconsicon-arrow-down"></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="espacios" class="ct-section">
+  <h2 class="ct-headline">Nuestros espacios</h2>
+
+  <div class="ct-new-columns">
+
+    <div class="ct-div-block">
+      <img src="local.png" alt="Salón principal" class="ct-image">
+      <div class="ct-text-block">
+        Salón principal, cómodo y acogedor.
+      </div>
+    </div>
+
+    <div class="ct-div-block">
+      <img src="terraza.png" alt="Barra" class="ct-image">
+      <div class="ct-text-block">
+       Nuestra terraza.
+      </div>
+    </div>
+
+    <div class="ct-div-block">
+      <img src="salon.png" alt="Eventos" class="ct-image">
+      <div class="ct-text-block">
+        Espacio para celebraciones y eventos privados.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- Sección de Contacto y Horarios -->
+  <section id="reserva" class="contacto-horarios">
+    <div class="overlay">
+      <h2>Contacto y Horarios</h2>
+     
+
+      <div class="info-contacto">
+        <!-- Botón de teléfono -->
+        <a href="tel:656962955" class="telefono-btn">
+          <i class="fas fa-phone-square-alt"></i> 656 962 955
+        </a>
+
+        <!-- Horarios -->
+        <div class="horarios">
+          <p>Lunes: Cerrado</p>
+          <p>Martes a Domingo: 08:00 a 24:00</p>
+        </div>
+      </div>
+
+<div class="direccion">
+  <h3>¡Ven a vernos!</h3>
+
+  <a href="https://maps.app.goo.gl/yMRAhMfB7bND5ThP8"
+     target="_blank"
+     class="direccion-maps">
+
+    <i class="fas fa-map-marker-alt"></i>
+    <span>P.º Virgen de Linarejos, 32 · Linares</span>
+
+  </a>
+</div>
+
+
+    </div>
+  </section>
+  
+
+
+<!-- 🔹 Sección Reseñas de Google 
+<section id="reseñas" class="reseñas-section">
+  <h2>Lo que opinan nuestros clientes</h2>
+
+<div class="trustindex-container">
+  <script defer async src='https://cdn.trustindex.io/loader.js?d0f26f6537cd5539923623d4fb9'></script>
+</div>
+
+</section>-->
+<footer class="footer-legal">
+
+  <div class="footer-social">
+    <a href="https://www.instagram.com/barrestauranteorzaes/" target="_blank">
+      <img src="instagram-logo.png" alt="Instagram">
+    </a>
+    <a href="https://www.facebook.com/share/1Bu1LuWite/?mibextid=wwXIfr" target="_blank">
+      <img src="face.png" alt="Facebook">
+    </a>
+  </div>
+
+  <p class="footer-copy">
+    © 2026 Orzaes Bar Restaurante
+  </p>
+
+  <div class="footer-links">
+    <a href="aviso-legal.html">Aviso legal</a>
+    <span>|</span>
+    <a href="politica-cookies.html">Política de cookies</a>
+  </div>
+
+</footer>
+
+
+
+
+
+
+  <!-- Icono volver arriba -->
+  <div id="fancy_icon-40-6" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+    <i class="fas fa-arrow-circle-up"></i>
+  </div>
+
+  <script>
+    const btnUp = document.getElementById('fancy_icon-40-6');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 200) {
+        btnUp.style.display = 'block';
+      } else {
+        btnUp.style.display = 'none';
+      }
+    });
+
+// Arreglos de imágenes para cada bloque
+const images1 = ["catering1.png","catering4.png","catering7.png","catering10.png"];
+const images2 = ["catering2.png","catering5.png","catering8.png","catering11.png"];
+const images3 = ["catering3.png","catering6.png","catering9.png","catering12.png"];
+
+// Seleccionamos las imágenes actuales en cada bloque
+const img1 = document.querySelector(".ct-new-columns .ct-div-block:nth-child(1) .ct-image");
+const img2 = document.querySelector(".ct-new-columns .ct-div-block:nth-child(2) .ct-image");
+const img3 = document.querySelector(".ct-new-columns .ct-div-block:nth-child(3) .ct-image");
+
+function aceptarCookies(){
+  localStorage.setItem('cookiesAceptadas','true');
+  document.getElementById('cookie-banner').style.display='none';
+}
+
+if(localStorage.getItem('cookiesAceptadas')){
+  document.getElementById('cookie-banner').style.display='none';
+}
+// Contadores para cada bloque
+let index1 = 0, index2 = 0, index3 = 0;
+
+// Función para cambiar imágenes
+function changeImages() {
+  index1 = (index1 + 1) % images1.length;
+  index2 = (index2 + 1) % images2.length;
+  index3 = (index3 + 1) % images3.length;
+
+  img1.src = images1[index1];
+  img2.src = images2[index2];
+  img3.src = images3[index3];
+}
+
+// Cambiar cada 5 segundos
+setInterval(changeImages, 5000);
+  </script>
+</body>
+</html>
