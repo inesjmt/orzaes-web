@@ -14,9 +14,25 @@
       color:#333;
     }
 
+
+    /* Icono volver arriba */
+    #fancy_icon-40-6 {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      font-size: 3rem;
+      color: #b22222;
+      cursor: pointer;
+      display: none; /* oculto hasta hacer scroll */
+      z-index: 1000;
+    }
+
+    #fancy_icon-40-6:hover {
+      color: #ff4444;
+    }
 .btn-home{
   position:absolute;
-  right:20px;
+  right:140px;
   background:#b22222;
   color:white;
   padding:10px 18px;
@@ -152,5 +168,20 @@ header{
   © 2026 Orzaes Bar Restaurante
 </footer>
 
+  <!-- Icono volver arriba -->
+  <div id="fancy_icon-40-6" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+    <i class="fas fa-arrow-circle-up"></i>
+  </div>
+  
+    <script>
+    const btnUp = document.getElementById('fancy_icon-40-6');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 200) {
+        btnUp.style.display = 'block';
+      } else {
+        btnUp.style.display = 'none';
+      }
+    });
+	 </script>
 </body>
 </html>
