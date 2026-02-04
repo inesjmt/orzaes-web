@@ -16,7 +16,10 @@
     No utilizamos cookies de análisis ni publicidad.
     <a href="politica-cookies.html">Más información</a>
   </p>
-  <button onclick="aceptarCookies()">Aceptar</button>
+  <div class="cookie-buttons">
+    <button class="btn-cookie accept" onclick="aceptarCookies()">Aceptar</button>
+    <button class="btn-cookie reject" onclick="rechazarCookies()">Rechazar</button>
+  </div>
 </div>
 
 <body>
@@ -209,10 +212,18 @@ function aceptarCookies(){
   localStorage.setItem('cookiesAceptadas','true');
   document.getElementById('cookie-banner').style.display='none';
 }
-
-if(localStorage.getItem('cookiesAceptadas')){
+function rechazarCookies(){
+  localStorage.setItem('cookiesRechazadas','true');
   document.getElementById('cookie-banner').style.display='none';
 }
+
+if(
+  localStorage.getItem('cookiesAceptadas') ||
+  localStorage.getItem('cookiesRechazadas')
+){
+  document.getElementById('cookie-banner').style.display='none';
+}
+
 // Contadores para cada bloque
 let index1 = 0, index2 = 0, index3 = 0;
 
