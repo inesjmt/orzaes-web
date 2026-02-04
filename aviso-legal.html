@@ -30,17 +30,17 @@
     #fancy_icon-40-6:hover {
       color: #ff4444;
     }
+/* Botón home – PC */
 .btn-home{
   position:absolute;
   right:140px;
   background:#b22222;
   color:white;
-  padding:10px 18px;
+  padding:10px 16px;
   border-radius:6px;
   text-decoration:none;
-  font-weight:600;
+  font-size:1.1em;
 }
-
 
 header{
   background:#fff;
@@ -52,18 +52,10 @@ header{
   box-shadow:0 2px 6px rgba(0,0,0,0.1);
 }
 
-    header img{
-      max-width:180px;
-    }
+header img{
+  max-width:180px;
+}
 
-    .btn-home{
-      background:#b22222;
-      color:white;
-      padding:10px 18px;
-      border-radius:6px;
-      text-decoration:none;
-      font-weight:600;
-    }
 
     .legal-container{
       max-width:900px;
@@ -96,6 +88,18 @@ header{
       color:white;
       font-size:0.9em;
     }
+	
+@media (max-width: 768px){
+  header{
+    flex-direction:column;
+    gap:15px;
+  }
+
+  .btn-home{
+    position:static;
+  }
+}
+
   </style>
 </head>
 
