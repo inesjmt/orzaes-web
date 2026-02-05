@@ -202,31 +202,40 @@ li{
     max-width:100%;
   }
 
+.menu-section li{
+  text-align:center;
+}
+
   li{
     padding:12px 0;
   }
 
- .plato-linea{
+.plato-linea{
   display:flex;
-  flex-direction:column;
+  flex-direction:row;
+  justify-content:space-between;
   align-items:center;
-  justify-content:center;
-  gap:4px;
+  gap:8px;
 }
 
 
-  .plato-linea span:first-child{
-    font-size:0.9em;
-    text-align:center;
-  }
+
+.plato-linea span:first-child{
+  font-size:0.9em;
+  flex:1;
+}
+
+.precio{
+  font-weight:600;
+  white-space:nowrap;
+}
+
 
 .plato-linea span{
   text-align:center;
 }
 
-  .precio{
-    font-size:0.95em;
-  }
+
 
   /* Alérgenos */
   .alergenos{
