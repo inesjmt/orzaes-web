@@ -165,4 +165,101 @@ li{
   justify-content:center;
 }
 
+/* =========================
+   📱 AJUSTES MÓVIL CARTA
+   ========================= */
+@media (max-width: 768px){
+
+  body{
+    padding:12px;
+  }
+
+  header{
+    margin-bottom:20px;
+  }
+
+  .logo-img{
+    width:100px;
+  }
+
+  h1{
+    font-size:1.6em;
+  }
+
+  /* Tabs */
+  .tabs{
+    gap:8px;
+    padding:10px 0;
+  }
+
+  .tab-btn{
+    padding:8px 14px;
+    font-size:0.85em;
+  }
+
+  /* Secciones */
+  .menu-section{
+    max-width:100%;
+  }
+
+  li{
+    padding:12px 0;
+  }
+
+  .plato-linea{
+    flex-direction:column;
+    gap:4px;
+  }
+
+  .plato-linea span:first-child{
+    font-size:0.9em;
+    text-align:center;
+  }
+
+  .precio{
+    font-size:0.95em;
+  }
+
+  /* Alérgenos */
+  .alergenos{
+    margin-top:6px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    justify-content:center;
+  }
+
+  .icon-alergeno{
+    width:18px;
+    height:18px;
+  }
+
+  /* Leyenda alérgenos */
+  .leyenda-alergenos{
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+  }
+
+  .leyenda-alergenos img{
+    width:36px;
+  }
+
+  /* Botones flotantes */
+  #btn-up{
+    font-size:2.5rem;
+    bottom:15px;
+    right:15px;
+  }
+
+  #btn-home{
+    font-size:2.2rem;
+    bottom:15px;
+    left:15px;
+  }
+
+  footer{
+    margin-top:30px;
+    font-size:0.75em;
+  }
+}
 
