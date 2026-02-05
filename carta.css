@@ -206,15 +206,23 @@ li{
     padding:12px 0;
   }
 
-  .plato-linea{
-    flex-direction:column;
-    gap:4px;
-  }
+ .plato-linea{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+}
+
 
   .plato-linea span:first-child{
     font-size:0.9em;
     text-align:center;
   }
+
+.plato-linea span{
+  text-align:center;
+}
 
   .precio{
     font-size:0.95em;
