@@ -98,6 +98,8 @@ li{
   gap:12px;
   margin-top:40px;
   font-size:0.8em;
+  justify-content:center;
+  justify-items:center; 
 }
 .leyenda-alergenos img{
   width:45px;
@@ -257,6 +259,7 @@ li{
     gap:14px;
     padding:10px 0;
   }
+
 
   .leyenda-alergenos img{
     width:36px;
