@@ -92,15 +92,13 @@ li{
 
 
 /* ALERGENOS */
-
 .leyenda-alergenos{
-  max-width:360px;
-  margin:30px auto;
   display:grid;
-  justify-content:center;
+  grid-template-columns:repeat(7,1fr);
+  gap:12px;
+  margin-top:40px;
+  font-size:0.8em;
 }
-
-
 .leyenda-alergenos img{
   width:45px;
   margin-right:6px;
@@ -254,7 +252,7 @@ li{
   }
 
   /* Leyenda alérgenos */
-   .leyenda-alergenos{
+  .leyenda-alergenos{
     grid-template-columns:repeat(4,1fr);
     gap:14px;
     padding:10px 0;
