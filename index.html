@@ -7,7 +7,8 @@
 
   <!-- Cargar Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-<link rel="stylesheet" href="estilos.css">
+  <link rel="stylesheet" href="estilos.css">
+
 <script type="application/ld-json">
 {
   "@context": "https://schema.org",
@@ -41,6 +42,7 @@
   ]
 }
 </script>
+
 </head>
 <div id="cookie-banner">
   <p>
@@ -53,6 +55,7 @@
     <button class="btn-cookie btn-reject" onclick="rechazarCookies()">Rechazar</button>
   </div>
 </div>
+
 
 <body>
   <header id="top">
@@ -125,7 +128,7 @@
     <div class="ct-div-block">
       <img src="terraza.png" alt="Barra" class="ct-image">
       <div class="ct-text-block">
-       Disfruta de nuestra gran y acogedora terraza.
+       Nuestra terraza.
       </div>
     </div>
 
@@ -160,14 +163,14 @@
       </div>
 
 <div class="direccion">
-  <h3>¡Ven a conocernos!</h3>
+  <h3>¡Ven a vernos!</h3>
 
-  <a href="https://maps.app.goo.gl/yMRAhMfB7bND5ThP8"
+  <a href="https://www.google.com/maps/search/?api=1&query=Orzaes+Linares+Paseo+Virgen+de+Linarejos+32"
      target="_blank"
      class="direccion-maps">
 
     <i class="fas fa-map-marker-alt"></i>
-    <span>P.º Virgen de Linarejos, 32 · Linares</span>
+    <span>P.º Virgen de Linarejos, 32  Linares</span>
 
   </a>
 </div>
@@ -191,10 +194,17 @@
 
   <div class="footer-social">
     <a href="https://www.instagram.com/barrestauranteorzaes/" target="_blank">
-      <img src="instagram-logo.png" alt="Instagram">
+      <img src="insta.png" alt="Instagram">
     </a>
     <a href="https://www.facebook.com/share/1Bu1LuWite/?mibextid=wwXIfr" target="_blank">
-      <img src="face.png" alt="Facebook">
+      <img src="facebook.png" alt="Facebook">
+    </a>
+
+	<a href="https://wa.me/34656962955?text=Hola!%20Me%20gustaría%20reservar%20una%20mesa%20en%20Orzaes" target="_blank">
+      <img src="whats.png" alt="Whatsapp">
+    </a>
+	 <a href="https://www.google.com/maps/search/?api=1&query=Orzaes+Linares+Paseo+Virgen+de+Linarejos+32" target="_blank">
+      <img src="google-maps.png" alt="Maps">
     </a>
   </div>
 
@@ -209,10 +219,6 @@
   </div>
 
 </footer>
-
-
-
-
 
 
   <!-- Icono volver arriba -->
@@ -244,10 +250,12 @@ function aceptarCookies(){
   localStorage.setItem('cookiesAceptadas','true');
   document.getElementById('cookie-banner').style.display='none';
 }
+
 function rechazarCookies(){
   localStorage.setItem('cookiesRechazadas','true');
   document.getElementById('cookie-banner').style.display='none';
 }
+
 
 if(
   localStorage.getItem('cookiesAceptadas') ||
