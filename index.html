@@ -53,6 +53,7 @@
   <div class="cookie-buttons">
     <button class="btn-cookie" onclick="aceptarCookies()">Aceptar</button>
     <button class="btn-cookie btn-reject" onclick="rechazarCookies()">Rechazar</button>
+
   </div>
 </div>
 
@@ -64,11 +65,14 @@
 
 <div class="buttons">
   <a href="#reserva" class="btn btn-red">Reserva</a>
- 
+   <a href="#menus" class="btn btn-black">Menú para grupos</a>
+
 <!-- <a href="#novedades" class="flecha-abajo">
     <i class="fas fa-angle-down"></i>
   </a> -->
   <a href="carta.html" class="btn btn-black">Nuestra carta</a>
+  
+
 </div>
 
 
@@ -111,6 +115,27 @@
       </svg>
     </div>
   </div>
+</section>
+
+
+<section id="menus" class="ct-section">
+  <h2 class="ct-headline">Menús para grupos</h2>
+
+	<div class="preview-imgs">
+	  <img id="menuPreview" src="menu1.png" alt="Menú grupo">
+	</div>
+
+	<div id="lightbox" class="lightbox">
+	  <span class="close">&times;</span>
+
+	  <img class="lightbox-content" id="lightbox-img">
+
+	  <div class="nav prev">&#10094;</div>
+	  <div class="nav next">&#10095;</div>
+	</div>
+ <!-- <a href="menu-grupos.pdf" target="_blank" class="btn btn-black">
+    Ver menú completo
+  </a> -->
 </section>
 
 <section id="espacios" class="ct-section">
@@ -227,6 +252,90 @@
   </div>
 
   <script>
+const menus = [
+  "menu1.png",
+  "menu2.png",
+  "menu3.png",
+  "menu4.png",
+  "menu5.png",
+  "menu6.png"
+];
+
+let currentIndex = 0;
+
+const preview = document.getElementById("menuPreview");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+// 🔹 Abrir
+preview.addEventListener("click", () => {
+  currentIndex = 0;
+  lightboxImg.src = menus[currentIndex];
+
+  lightbox.style.display = "block";
+
+  setTimeout(() => {
+    lightbox.classList.add("show");
+  }, 10);
+});
+
+// 🔹 Cerrar
+function cerrarLightbox() {
+  lightbox.classList.remove("show");
+
+  setTimeout(() => {
+    lightbox.style.display = "none";
+  }, 300);
+}
+
+// Botón X
+document.querySelector(".close").onclick = cerrarLightbox;
+
+// Click fuera
+lightbox.addEventListener("click", (e) => {
+  if (e.target === lightbox) {
+    cerrarLightbox();
+  }
+});
+
+
+
+// 🔹 Navegación
+function showNext() {
+  currentIndex = (currentIndex + 1) % menus.length;
+  lightboxImg.src = menus[currentIndex];
+}
+
+function showPrev() {
+  currentIndex = (currentIndex - 1 + menus.length) % menus.length;
+  lightboxImg.src = menus[currentIndex];
+}
+
+document.querySelector(".next").onclick = showNext;
+document.querySelector(".prev").onclick = showPrev;
+
+// 🔹 Swipe móvil
+let startX = 0;
+
+lightbox.addEventListener("touchstart", (e) => {
+  startX = e.touches[0].clientX;
+});
+
+lightbox.addEventListener("touchend", (e) => {
+  let endX = e.changedTouches[0].clientX;
+
+  if (startX - endX > 50) {
+    showNext(); // swipe izquierda
+  } else if (endX - startX > 50) {
+    showPrev(); // swipe derecha
+  }
+});
+
+// 🔹 Cerrar al hacer click fuera de la imagen
+lightbox.addEventListener("click", (e) => {
+  if (e.target === lightbox) {
+    cerrarLightbox();
+  }
+});
     const btnUp = document.getElementById('fancy_icon-40-6');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 200) {
