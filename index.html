@@ -252,8 +252,7 @@
   </div>
 
   <script>
-  document.body.style.overflow = "hidden"; // al abrir
-document.body.style.overflow = "auto";   // al cerrar
+
 const menus = [
   "menu1.png",
   "menu2.png",
@@ -273,7 +272,9 @@ preview.addEventListener("click", () => {
   currentIndex = 0;
   lightboxImg.src = menus[currentIndex];
 
-  lightbox.style.display = "block";
+  lightbox.style.display = "flex";
+
+  document.body.style.overflow = "hidden"; // ✅ aquí
 
   setTimeout(() => {
     lightbox.classList.add("show");
@@ -283,6 +284,8 @@ preview.addEventListener("click", () => {
 // 🔹 Cerrar
 function cerrarLightbox() {
   lightbox.classList.remove("show");
+
+  document.body.style.overflow = "auto"; // ✅ aquí
 
   setTimeout(() => {
     lightbox.style.display = "none";
